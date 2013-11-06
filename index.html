@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>What Do You Want To Be?</title>
+        <meta name="description" content="What Do You Want To Be">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div id="background">
+        </div>
+
+        <div id="content">
+            <h1>Astronaut</h1>
+            <h2>Lorem Ipsum Dolor Occaecat quis sriracha PBRB skateboard iPhone. Est leggings trust fund, dreamcatcher pug sunt 90's tofu XOXO sapiente reprehenderit. Street art commodo roof party in DIY ugh, proident whatever retro eu pug art party.</h2>
+        </div>
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+     <!-- Tutorial:  http://api.jquery.com/jQuery.getJSON/ -->
+        <script>
+            (function() {
+            var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+            $.getJSON( flickerAPI, {
+            tags: "astronaut",
+            tagmode: "any",
+            format: "json"
+            })
+            .done(function( data ) {
+            $.each( data.items, function( i, item ) {
+            $( "<img>" ).attr( "src", item.media.m ).appendTo( "#background" );
+            if ( i === 0 ) {
+            return false;
+            }
+            });
+            });
+            })();
+        </script>
+
+    </body>
+</html>
