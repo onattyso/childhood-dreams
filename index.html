@@ -21,31 +21,36 @@
         </div>
 
         <div id="content">
-            <h1>Astronaut</h1>
+            <h1>what if i put a long sentence that doesn't make sense</h1>
             <h2>Lorem Ipsum Dolor Occaecat quis sriracha PBRB skateboard iPhone. Est leggings trust fund, dreamcatcher pug sunt 90's tofu XOXO sapiente reprehenderit. Street art commodo roof party in DIY ugh, proident whatever retro eu pug art party.</h2>
         </div>
         <script src="js/vendor/jquery-1.10.2.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+
+
      <!-- Tutorial:  http://api.jquery.com/jQuery.getJSON/ -->
         <script>
             (function() {
-            var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-            $.getJSON( flickerAPI, {
-            tags: "astronaut",
-            tagmode: "any",
-            format: "json"
-            })
-            .done(function( data ) {
-            $.each( data.items, function( i, item ) {
-            $( "<img>" ).attr( "src", item.media.m ).appendTo( "#background" );
-            if ( i === 0 ) {
-            return false;
-            }
-            });
-            });
+                var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+                $.getJSON( flickerAPI, {
+                tags: document.getElementsByTagName('h1')[0].innerHTML,
+                tagmode: "any",
+                format: "json"
+                })
+                .done(function( data ) {
+                $.each( data.items, function( i, item ) {
+                $( "<img>" ).attr( "src", item.media.m ).appendTo( "#background" );
+                if ( i === 0 ) {
+                    return false;
+                    }
+                  });
+                });
             })();
-        </script>
 
+            if (document.getElementsByTagName('img')===[]) {
+               console.log("no image!");
+                }
+        </script>
     </body>
 </html>
